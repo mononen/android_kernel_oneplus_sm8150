@@ -44,11 +44,6 @@ static void patch_flag(char *cmd, const char *flag, const char *val)
 
 static void patch_safetynet_flags(char *cmd)
 {
-	/* Return early if not OnePlus 7 or OnePlus 7 Pro device. */
-	if (!strstr(saved_command_line, "project_name=18857") &&
-		!strstr(saved_command_line, "project_name=18821"))
-		return;
-
 	patch_flag(cmd, "androidboot.verifiedbootstate=", "green");
 	patch_flag(cmd, "androidboot.veritymode=", "enforcing");
 	patch_flag(cmd, "androidboot.vbmeta.device_state=", "locked");
